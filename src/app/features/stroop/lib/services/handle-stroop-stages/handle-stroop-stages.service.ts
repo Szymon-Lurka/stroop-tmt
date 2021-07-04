@@ -41,10 +41,10 @@ export class HandleStroopStagesService implements HandleStroopStages {
         this.setNextSetStage(thirdStageColors);
       } else if (this._currentStage.value === 3) {
         this.handleLastStage();
-        return;
       }
-      this._currentStage.next(this._currentStage.value + 1);
       this.localStorage.set('currentStroopStage', this._currentStage.value.toString());
+      if (this._currentStage.value === 3) return;
+      this._currentStage.next(this._currentStage.value + 1);
     });
   }
 
