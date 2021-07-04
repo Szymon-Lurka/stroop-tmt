@@ -1,0 +1,37 @@
+form {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .wrapper {
+    display:flex;
+    flex-direction: column;
+    width: 70%;
+    height: 70%;
+    box-shadow: 4px 4px 36px 15px rgba(0,0,0,0.17);
+    padding: 16px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+    align-items: center;
+  }
+  button {
+    width: 20%;
+    align-self: center;
+    margin-top: 15px;
+  }
+}
+
+::ng-deep {
+  mat-radio-button {
+    margin-left: 15px;
+  }
+  mat-form-field {
+    width: 50%;
+  }
+}
+
+.ng-container {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,5 @@
+<ng-container [ngSwitch]="step">
+  <app-welcome-page *ngSwitchCase="'welcome'"></app-welcome-page>
+  <app-tutorial-page *ngSwitchCase="'tutorial'"></app-tutorial-page>
+  <app-stroop-test *ngSwitchCase="'stroopTest'"></app-stroop-test>
+</ng-container>
