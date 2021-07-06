@@ -13,12 +13,11 @@ export class GoBackToStroopGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.localStorage.get('isStroopDone')) {
+    if (this.localStorage.get('stroopTestAnswers')) {
       this.router.navigate(['tmt']);
       return false
     } else {
       return true;
     }
   }
-
 }
