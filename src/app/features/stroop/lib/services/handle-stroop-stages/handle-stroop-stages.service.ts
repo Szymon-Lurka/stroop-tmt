@@ -8,7 +8,7 @@ import {EndStageDialogComponent} from "../../../components/end-stage-dialog/end-
 import {secondStageColors} from "../../data/second-stage";
 import {thirdStageColors} from "../../data/third-stage";
 import {Router} from "@angular/router";
-import {LocalStorage} from "../../../../../../lib/services/local-storage/local-storage";
+import {HandleUserChoice} from "../handle-user-choice/handle-user-choice";
 
 @Injectable()
 export class HandleStroopStagesService implements HandleStroopStages {
@@ -18,10 +18,7 @@ export class HandleStroopStagesService implements HandleStroopStages {
 
   constructor(private dialog: MatDialog,
               private router: Router,
-              private localStorage: LocalStorage) {
-    if (this.localStorage.get('currentStroopStage')) {
-      this._currentStage.next(Number(this.localStorage.get('currentStroopStage')));
-    }
+              private handleUserChoice: HandleUserChoice) {
   }
 
   currentSet = this._currentSet.asObservable();
@@ -42,7 +39,6 @@ export class HandleStroopStagesService implements HandleStroopStages {
       } else if (this._currentStage.value === 3) {
         this.handleLastStage();
       }
-      this.localStorage.set('currentStroopStage', this._currentStage.value.toString());
       if (this._currentStage.value === 3) return;
       this._currentStage.next(this._currentStage.value + 1);
     });
@@ -53,7 +49,7 @@ export class HandleStroopStagesService implements HandleStroopStages {
   }
 
   private handleLastStage() {
-    this.localStorage.set('isStroopDone', 'true');
+    this.handleUserChoice.saveToLocalStorage();
     this.router.navigate(['tmt']).then();
   }
 }

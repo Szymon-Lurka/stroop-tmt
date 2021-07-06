@@ -1,8 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, HostListener} from '@angular/core';
 import {firstStageColors} from "../../lib/data/first-stage";
 import {HandleStroopStages} from "../../lib/services/handle-stroop-stages/handle-stroop-stages";
 import {Subject} from "rxjs";
 import {takeUntil} from "rxjs/operators";
+import {HandleUserChoice} from "../../lib/services/handle-user-choice/handle-user-choice";
 
 @Component({
   selector: 'app-stroop-test',
@@ -15,11 +16,30 @@ export class StroopTestComponent implements OnInit, OnDestroy {
   currentStage = 1;
   stagesSubscription = new Subject();
 
-  constructor(private handleStroopStages: HandleStroopStages) {
+  @HostListener('window:keyup', ['$event'])
+  onClick(key: KeyboardEvent) {
+
+    if (this.isTheLastQuestionInSet()) return;
+    if (this.isKeyCodeIsCorrect(key.code)) {
+
+      const currentQuestion = this.currentSet[this.currentQuestionIndex]
+      this.handleUserChoice.handle(key.code, currentQuestion, this.currentStage);
+
+      this.currentQuestionIndex++;
+
+      if (this.isTheLastQuestionInSet()) {
+        this.handleStroopStages.handleChangeStage();
+      }
+    }
+  }
+
+  constructor(private handleStroopStages: HandleStroopStages,
+              private handleUserChoice: HandleUserChoice) {
   }
 
   ngOnInit() {
-    this.getCurrentStageAndCurrentSet();
+    this.getCurrentSet();
+    this.getCurrentStage();
   }
 
   ngOnDestroy() {
@@ -27,11 +47,18 @@ export class StroopTestComponent implements OnInit, OnDestroy {
     this.stagesSubscription.complete();
   }
 
-  changeSet() {
-    this.handleStroopStages.handleChangeStage();
+  private getCurrentSet() {
+    this.handleStroopStages.currentSet
+      .pipe(
+        takeUntil(this.stagesSubscription)
+      )
+      .subscribe((set) => {
+        this.currentQuestionIndex = 0;
+        this.currentSet = set;
+      })
   }
 
-  private getCurrentStageAndCurrentSet() {
+  private getCurrentStage() {
     this.handleStroopStages.currentStage
       .pipe(
         takeUntil(this.stagesSubscription)
@@ -39,12 +66,14 @@ export class StroopTestComponent implements OnInit, OnDestroy {
       .subscribe((stage) => {
         this.currentStage = stage;
       });
-    this.handleStroopStages.currentSet
-      .pipe(
-        takeUntil(this.stagesSubscription)
-      )
-      .subscribe((set) => {
-        this.currentSet = set;
-      })
   }
+
+  private isKeyCodeIsCorrect(keyCode: string) {
+    return keyCode === 'KeyS' || keyCode === 'KeyA' || keyCode === 'KeyK' || keyCode === 'KeyL';
+  }
+
+  private isTheLastQuestionInSet() {
+    return this.currentQuestionIndex === this.currentSet.length - 1
+  }
+
 }

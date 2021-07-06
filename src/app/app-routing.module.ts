@@ -10,7 +10,7 @@ const routes: Route[] = [
   {
     path: '', component: AppComponent,
     children: [
-      {path: '', component: FirstStepComponent, canActivate: [GoBackGuard], canActivateChild: [IsStillFirstPageGuard]} ,
+      {path: '', component: FirstStepComponent, canActivate: [GoBackGuard]} ,
       {
         path: 'stroop',
         canActivate: [GoBackToStroopGuard],

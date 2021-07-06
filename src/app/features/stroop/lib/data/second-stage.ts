@@ -1,7 +1,7 @@
 import {DataSet} from "../models/data-set";
 
 export const secondStageColors: DataSet[] = [
-  { text: "Red", color: "Red" },
+  { text: "Green", color: "Red" },
   { text: "Yellow", color: "Red" },
   { text: "Green", color: "Green" },
   { text: "Blue", color: "Red" },
