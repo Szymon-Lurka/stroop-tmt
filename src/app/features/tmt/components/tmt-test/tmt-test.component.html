@@ -1,1 +1,8 @@
 <p>tmt-test works!</p>
+<div>
+  <p *ngFor="let data of currentDataSet"
+     [ngStyle]="{'top': data.coordinates[0] + 'px', 'left': data.coordinates[1] + 'px'}"
+     (mouseover)="test(data.value)">
+    {{data.value}}
+  </p>
+</div>

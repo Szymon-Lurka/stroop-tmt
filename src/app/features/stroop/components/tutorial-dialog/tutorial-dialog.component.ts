@@ -19,6 +19,6 @@ export class TutorialDialogComponent {
   }
 
   repeatTutorial() {
-    console.log('Reset logiki');
+    this.handleStroopSteps.changeCurrentStep('welcome');
   }
 }

@@ -1,2 +1,4 @@
-<p>tutorial-page works!</p>
-<button (click)="openDialog()">Symulacja końca samouczka</button>
+<p class="container__info">A - Yellow S - Green K - Red L - Blue</p>
+<p [ngStyle]="{'color': tutorialSet[currentQuestionIndex].color}">
+  {{tutorialSet[currentQuestionIndex].text}}
+</p>
