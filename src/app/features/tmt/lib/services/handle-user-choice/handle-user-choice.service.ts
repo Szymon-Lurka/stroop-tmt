@@ -6,7 +6,7 @@ import {LocalStorage} from "../../../../../../lib/services/local-storage/local-s
 
 @Injectable()
 export class HandleUserChoiceService implements HandleUserChoice {
-  private readonly answers: Answer[] = [];
+  private answers: Answer[] = [];
   private readonly errors: ErrorModel[] = [];
 
   constructor(
@@ -24,5 +24,9 @@ export class HandleUserChoiceService implements HandleUserChoice {
   saveToLocalStorage(): void {
     this.localStorage.set('tmtAnswer', JSON.stringify(this.answers));
     this.localStorage.set('tmtErrors', JSON.stringify(this.errors));
+  }
+
+  resetAnswers() {
+    this.answers = [];
   }
 }

@@ -21,18 +21,18 @@ export const firstDataSet: DataSet[] = [
     coordinates: [129, 372],
     value: 5
   },
-  // {
-  //   coordinates: [69, 132],
-  //   value: 6
-  // },
-  // {
-  //   coordinates: [250, 324],
-  //   value: 7
-  // },
-  // {
-  //   coordinates: [348, 542],
-  //   value: 8
-  // },
+  {
+    coordinates: [69, 132],
+    value: 6
+  },
+  {
+    coordinates: [250, 324],
+    value: 7
+  },
+  {
+    coordinates: [348, 542],
+    value: 8
+  },
   // {
   //   coordinates: [412, 784],
   //   value: 9
