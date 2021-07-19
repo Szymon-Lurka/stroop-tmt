@@ -11,4 +11,5 @@ export abstract class HandleUserChoice {
   abstract saveAnswer(answer: Answer): void;
   abstract saveError(error: ErrorModel): void;
   abstract saveToLocalStorage(): void;
+  abstract resetAnswers(): void;
 }
