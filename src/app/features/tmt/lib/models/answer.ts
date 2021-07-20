@@ -1,5 +1,5 @@
 export interface Answer {
-  value: number;
+  value: number | string;
   distance: number;
   reactionTime: number;
 }

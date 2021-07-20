@@ -41,4 +41,12 @@ export const secondDataSet: DataSet[] = [
     coordinates: [150, 424],
     value: 'E'
   },
+  {
+    coordinates: [450, 124],
+    value: 6
+  },
+  {
+    coordinates: [50, 324],
+    value: 'F'
+  },
 ]

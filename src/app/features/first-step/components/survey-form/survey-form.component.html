@@ -1,0 +1,22 @@
+<form [formGroup]="firstStepForm.form()" (ngSubmit)="onSubmit()">
+  <ng-container>
+    <mat-label>Pytanie pierwsze</mat-label>
+    <mat-radio-group aria-label="Select an option" [formControl]="firstStepForm.firstQuestion()" color="primary">
+      <mat-radio-button *ngFor="let scale of questionsScale" [value]="scale">{{scale}}</mat-radio-button>
+    </mat-radio-group>
+  </ng-container>
+
+  <ng-container>
+    <mat-label>Pytanie drugie</mat-label>
+    <mat-radio-group aria-label="Odpowiedz" [formControl]="firstStepForm.secondQuestion()" color="primary">
+      <mat-radio-button *ngFor="let scale of questionsScale" [value]="scale">{{scale}}</mat-radio-button>
+    </mat-radio-group>
+  </ng-container>
+
+  <button
+    type="submit"
+    mat-raised-button color="primary"
+    [disabled]="firstStepForm.firstQuestion().value === null ||
+firstStepForm.secondQuestion().value === null">
+    Click me!</button>
+</form>

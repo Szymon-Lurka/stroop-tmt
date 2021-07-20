@@ -8,9 +8,10 @@ import {MatButtonModule} from "@angular/material/button";
 import { TutorialDialogComponent } from './components/tutorial-dialog/tutorial-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { TmtTestComponent } from './components/tmt-test/tmt-test.component';
+import { ThankYouScreenComponent } from './components/thank-you-screen/thank-you-screen.component';
 
 @NgModule({
-  declarations: [MainComponent, WelcomePageComponent, TutorialComponent, TutorialDialogComponent, TmtTestComponent],
+  declarations: [MainComponent, WelcomePageComponent, TutorialComponent, TutorialDialogComponent, TmtTestComponent, ThankYouScreenComponent],
     imports: [TmtRoutingModule, CommonModule, MatButtonModule, MatDialogModule]
 })
 export class TmtModule {

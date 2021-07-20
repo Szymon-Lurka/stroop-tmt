@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {SaveFormToLocalStorage} from "./save-form-to-local-storage";
-import {LocalStorage} from "../../../../../lib/services/local-storage/local-storage";
+import {LocalStorage} from "../../../../../../lib/services/local-storage/local-storage";
 import {FirstStepForm} from "../first-step-form/first-step-form";
 
 @Injectable()

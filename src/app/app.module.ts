@@ -13,11 +13,19 @@ import {MatOptionModule} from "@angular/material/core";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatDialogModule} from "@angular/material/dialog";
 import {TmtModule} from "./features/tmt/tmt.module";
+import { StartComponent } from './features/first-step/components/start/start.component';
+import { DemoDataFormComponent } from './features/first-step/components/demo-data-form/demo-data-form.component';
+import { SurveyFormComponent } from './features/first-step/components/survey-form/survey-form.component';
+import {MatCardModule} from "@angular/material/card";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,
-    FirstStepComponent
+    FirstStepComponent,
+    StartComponent,
+    DemoDataFormComponent,
+    SurveyFormComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +39,8 @@ import {TmtModule} from "./features/tmt/tmt.module";
     MatRadioModule,
     MatDialogModule,
     TmtModule,
+    MatCardModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

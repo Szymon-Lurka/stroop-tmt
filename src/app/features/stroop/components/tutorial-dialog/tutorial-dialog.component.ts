@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {HandleStroopSteps} from "../../lib/services/handle-stroop-steps/handle-stroop-steps";
-import {FirstStepFormApi} from "../../../first-step/lib/first-step-form-api/first-step-form-api";
+import {FirstStepFormApi} from "../../../first-step/lib/services/first-step-form-api/first-step-form-api";
 import {LocalStorage} from "../../../../../lib/services/local-storage/local-storage";
 
 @Component({

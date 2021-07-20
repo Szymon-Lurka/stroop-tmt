@@ -9,5 +9,6 @@ import {TmtSteps} from "../../types/tmt-steps";
 })
 export abstract class HandleTmtSteps {
   abstract currentStep: BehaviorSubject<TmtSteps>;
+
   abstract changeCurrentStep(step: TmtSteps): void;
 }
