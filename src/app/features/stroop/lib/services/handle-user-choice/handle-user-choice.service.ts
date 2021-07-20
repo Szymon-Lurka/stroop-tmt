@@ -12,13 +12,14 @@ export class HandleUserChoiceService implements HandleUserChoice {
   constructor(private localStorage: LocalStorage) {
   }
 
-  handle(keyCode: KeyCodeColorsEnum, dataSet: DataSet, currentStage: number) {
+  handle(keyCode: KeyCodeColorsEnum, dataSet: DataSet, currentStage: number, reactionTimeInSeconds: number) {
     const answer: Answer = {
       stage: currentStage,
       data: {
         answer: keyCodeColors[keyCode],
         questionColor: dataSet.color,
         questionText: dataSet.text,
+        reactionTime: reactionTimeInSeconds,
       }
     };
     this.answers.push(answer);
