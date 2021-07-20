@@ -7,7 +7,7 @@ import {DataSet} from "../../models/data-set";
   useClass: HandleUserChoiceService
 })
 export abstract class HandleUserChoice {
-  abstract handle(keyCode: string, dataSet: DataSet, currentStage: number): void;
+  abstract handle(keyCode: string, dataSet: DataSet, currentStage: number, reactionTimeInSeconds: number): void;
 
   abstract saveToLocalStorage(): void;
 }

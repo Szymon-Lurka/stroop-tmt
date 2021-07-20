@@ -11,6 +11,7 @@ import {HandleUserChoice} from "../../lib/services/handle-user-choice/handle-use
   styleUrls: ['./stroop-test.component.scss']
 })
 export class StroopTestComponent implements OnInit, OnDestroy {
+  startTime = -1;
   currentQuestionIndex = 0;
   currentSet = firstStageColors;
   currentStage = 1;
@@ -22,8 +23,16 @@ export class StroopTestComponent implements OnInit, OnDestroy {
     if (this.isTheLastQuestionInSet()) return;
     if (this.isKeyCodeIsCorrect(key.code)) {
 
+
+      if (this.startTime < 0) {
+        this.startTime = new Date().getTime();
+      } 
+      const clickTime = new Date().getTime();
+      const timePassedFromStart = (clickTime - this.startTime) / 1000;  
+      this.startTime = clickTime;  
+
       const currentQuestion = this.currentSet[this.currentQuestionIndex]
-      this.handleUserChoice.handle(key.code, currentQuestion, this.currentStage);
+      this.handleUserChoice.handle(key.code, currentQuestion, this.currentStage, timePassedFromStart);
 
       this.currentQuestionIndex++;
 

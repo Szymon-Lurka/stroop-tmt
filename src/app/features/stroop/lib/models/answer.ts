@@ -4,5 +4,6 @@ export interface Answer {
     questionText: string;
     questionColor: string;
     answer: string;
+    reactionTime: number;
   }
 }
