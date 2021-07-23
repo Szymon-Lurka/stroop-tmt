@@ -3,35 +3,43 @@ import {DataSet} from "../models/data-set";
 export const firstDataSet: DataSet[] = [
   {
     coordinates: [50, 311],
-    value: 1
+    value: 1,
+    distance: 93187,
   },
   {
     coordinates: [230, 160],
-    value: 2
+    value: 2,
+    distance: 0,
   },
   {
     coordinates: [312, 100],
-    value: 3
+    value: 3,
+    distance: 310,
   },
   {
     coordinates: [464, 211],
-    value: 4
+    value: 4,
+    distance: 3129841328904723198,
   },
   {
     coordinates: [129, 372],
-    value: 5
+    value: 5,
+    distance: 1234,
   },
   {
     coordinates: [69, 132],
-    value: 6
+    value: 6,
+    distance: 2137,
   },
   {
     coordinates: [250, 324],
-    value: 7
+    value: 7,
+    distance: 122115,
   },
   {
     coordinates: [348, 542],
-    value: 8
+    value: 8,
+    distance: 432199,
   },
   // {
   //   coordinates: [412, 784],

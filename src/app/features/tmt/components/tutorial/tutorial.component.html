@@ -1,2 +1,10 @@
-<p>tutorial works!</p>
-<button (click)="openDialog()">Symulacja końca samouczka</button>
+<div>
+  <p *ngFor="let data of dataSet"
+     [ngStyle]="{
+     'top': data.coordinates[0] + 'px', 'left': data.coordinates[1] + 'px',
+     'color': checkStyles(data.value)
+     }"
+     (mouseover)="handleMouseOver(data.value)">
+    {{data.value}}
+  </p>
+</div>

@@ -68,20 +68,12 @@ export class TmtTestComponent {
 
   private handleSecondSetMouseOver(value: number | string) {
     if ((value as number) < this.currentValue) {
-      // if (this.startTime < 0) {
-      //   this.startTime = new Date().getTime();
-      // }
-      // const clickTime = new Date().getTime();
-      // const timePassedFromStart = (clickTime - this.startTime) / 1000;
-      // this.handleUserChoice.saveSecondError({
-      //   currentValue: this.currentValue,
-      //   reactionTime: timePassedFromStart
-      // })
       console.log('error');
       return;
     }
+    const currentItem = this.currentDataSet.filter((x) => x.value === value);
     // @ts-ignore
-    if (this.currentValue === (this.currentDataSet.length / 2) && value === 'F') {
+    if (this.currentValue === (this.currentDataSet.length / 2) && value === 'G') {
       if (this.startTime < 0) {
         this.startTime = new Date().getTime();
       }
@@ -89,7 +81,7 @@ export class TmtTestComponent {
       const timePassedFromStart = (clickTime - this.startTime) / 1000;
       this.handleUserChoice.saveSecondAnswer({
         value: TmtSecondDataSet[this.currentValue],
-        distance: 100,
+        distance: this.currentDataSet[this.currentDataSet.length - 1].distance,
         reactionTime: timePassedFromStart
       })
       this.handleUserChoice.saveSecondToLocalStorage();
@@ -97,8 +89,11 @@ export class TmtTestComponent {
     }
 
     if (typeof value === 'string') {
-
       if (value === TmtSecondDataSet[this.currentValue]) {
+        // @ts-ignore
+        if (TmtSecondDataSet[value] < TmtSecondDataSet[this.currentLetter]) {
+          return;
+        }
         if (this.startTime < 0) {
           this.startTime = new Date().getTime();
         }
@@ -111,9 +106,10 @@ export class TmtTestComponent {
         } else {
           this.currentLetter = TmtSecondDataSet[this.currentValue + 1];
         }
+        console.log(this.currentDataSet[this.currentValue]);
         this.handleUserChoice.saveSecondAnswer({
           value: TmtSecondDataSet[this.currentValue],
-          distance: 100,
+          distance: currentItem[0].distance,
           reactionTime: timePassedFromStart,
         })
       }
@@ -131,16 +127,16 @@ export class TmtTestComponent {
 
         this.handleUserChoice.saveSecondAnswer({
           value: this.currentValue + 1,
-          distance: 100,
+          distance: currentItem[0].distance,
           reactionTime: timePassedFromStart,
         })
         this.currentValue++;
       }
     }
-
   }
 
   private handleFirstSetMouseOver(value: number) {
+    const currentItem = this.currentDataSet.filter((x) => x.value === value);
     if (value - this.currentValue === 1) {
       if (this.startTime < 0) {
         this.startTime = new Date().getTime();
@@ -152,15 +148,8 @@ export class TmtTestComponent {
       this.currentValue++;
       this.handleUserChoice.saveAnswer({
         value: this.currentValue,
-        distance: 100,
+        distance: currentItem[0].distance,
         reactionTime: timePassedFromStart,
-      })
-    } else {
-      const clickTime = new Date().getTime();
-      const timePassedFromStart = (clickTime - this.startTime) / 1000;
-      this.handleUserChoice.saveError({
-        currentValue: this.currentValue,
-        reactionTime: timePassedFromStart
       })
     }
     if (this.currentDataSet.length - this.currentValue === 0) {
@@ -180,3 +169,4 @@ export class TmtTestComponent {
     this.startTime = -1;
   }
 }
+
