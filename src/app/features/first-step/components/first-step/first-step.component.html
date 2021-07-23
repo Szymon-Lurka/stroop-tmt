@@ -1,58 +1,6 @@
-<form [formGroup]="firstStepForm.form()" (ngSubmit)="onSubmit()">
-  <div class="wrapper">
-  <mat-form-field class="first">
-    <mat-label>
-      Imię
-    </mat-label>
-      <input [formControl]="firstStepForm.name()" matInput/>
-    <mat-error>
-      Pole jest wymagane!
-    </mat-error>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>
-      Nazwisko
-    </mat-label>
-    <input [formControl]="firstStepForm.lastName()" matInput/>
-    <mat-error>
-      Pole jest wymagane!
-    </mat-error>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>
-      E-mail
-    </mat-label>
-    <input [formControl]="firstStepForm.mail()" matInput/>
-    <mat-error>
-      Pole jest wymagane!
-    </mat-error>
-  </mat-form-field>
-
-<ng-container>
-  <mat-label>Pytanie pierwsze</mat-label>
-  <mat-radio-group aria-label="Select an option" [formControl]="firstStepForm.firstQuestion()" color="primary">
-    <mat-radio-button *ngFor="let scale of questionsScale" [value]="scale">{{scale}}</mat-radio-button>
-  </mat-radio-group>
+<ng-container [ngSwitch]="currentStep">
+  <app-start *ngSwitchCase="'start'"></app-start>
+  <app-demo-data-form *ngSwitchCase="'demo'"></app-demo-data-form>
+  <app-survey-form *ngSwitchCase="'survey'"></app-survey-form>
 </ng-container>
 
-
-<ng-container>
-  <mat-label>Pytanie drugie</mat-label>
-  <mat-radio-group aria-label="Odpowiedz" [formControl]="firstStepForm.secondQuestion()" color="primary">
-    <mat-radio-button *ngFor="let scale of questionsScale" [value]="scale">{{scale}}</mat-radio-button>
-  </mat-radio-group>
-</ng-container>
-
-
-    <button
-      type="submit"
-      mat-raised-button color="primary"
-      [disabled]="firstStepForm.form().invalid || firstStepForm.firstQuestion().value === null ||
-firstStepForm.secondQuestion().value === null">
-      Click me!</button>
-  </div>
-</form>
-
-<button (click)="test()">elo</button>

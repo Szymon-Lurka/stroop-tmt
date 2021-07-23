@@ -11,7 +11,7 @@ import {LocalStorage} from "../../../../../lib/services/local-storage/local-stor
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit, OnDestroy {
-  step!: TmtSteps;
+  step: TmtSteps = 'welcome';
   stepSubscription = new Subject();
 constructor(private handleTmtSteps: HandleTmtSteps,
             private localStorage: LocalStorage) {
@@ -29,7 +29,7 @@ ngOnInit() {
 }
 
   private checkIsTutorialDone() {
-    if (this.localStorage.get('stroopTestAnswers')) {
+    if (this.localStorage.get('xd')) {
       this.step = 'tmtTest';
     }
   }

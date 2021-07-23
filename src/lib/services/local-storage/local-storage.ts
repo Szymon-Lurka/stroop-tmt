@@ -8,5 +8,5 @@ import {LocalStorageService} from "./local-storage.service";
 export abstract class LocalStorage {
   abstract set(key: string, value: string): void;
 
-  abstract get(key: string): string | null;
+  abstract get(key: string): string;
 }

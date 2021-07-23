@@ -1,0 +1,34 @@
+<form [formGroup]="firstStepForm.form()" (ngSubmit)="onSubmit()">
+  <div class="wrapper">
+    <mat-form-field class="first">
+      <mat-label>
+        Imię
+      </mat-label>
+      <input [formControl]="firstStepForm.name()" matInput/>
+      <mat-error>
+        Pole jest wymagane!
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>
+        Nazwisko
+      </mat-label>
+      <input [formControl]="firstStepForm.lastName()" matInput/>
+      <mat-error>
+        Pole jest wymagane!
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>
+        E-mail
+      </mat-label>
+      <input [formControl]="firstStepForm.mail()" matInput/>
+      <mat-error>
+        Pole jest wymagane!
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button type="submit">Przejdź do ankiety</button>
+  </div>
+</form>
