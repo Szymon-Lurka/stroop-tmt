@@ -1,0 +1,157 @@
+{
+  "version": 1,
+  "projects": {
+    "tmt-stroop-test": {
+      "projectType": "application",
+      "root": "apps/tmt-stroop-test",
+      "sourceRoot": "apps/tmt-stroop-test/src",
+      "prefix": "tmt-stroop-test",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/tmt-stroop-test",
+            "index": "apps/tmt-stroop-test/src/index.html",
+            "main": "apps/tmt-stroop-test/src/main.ts",
+            "polyfills": "apps/tmt-stroop-test/src/polyfills.ts",
+            "tsConfig": "apps/tmt-stroop-test/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/tmt-stroop-test/src/favicon.ico",
+              "apps/tmt-stroop-test/src/assets"
+            ],
+            "styles": ["apps/tmt-stroop-test/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/tmt-stroop-test/src/environments/environment.ts",
+                  "with": "apps/tmt-stroop-test/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "tmt-stroop-test:build:production"
+            },
+            "development": {
+              "browserTarget": "tmt-stroop-test:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "tmt-stroop-test:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/tmt-stroop-test/src/**/*.ts",
+              "apps/tmt-stroop-test/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/tmt-stroop-test"],
+          "options": {
+            "jestConfig": "apps/tmt-stroop-test/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "tmt-stroop-test-e2e": {
+      "root": "apps/tmt-stroop-test-e2e",
+      "sourceRoot": "apps/tmt-stroop-test-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/tmt-stroop-test-e2e/cypress.json",
+            "devServerTarget": "tmt-stroop-test:serve:development",
+            "tsConfig": "apps/tmt-stroop-test-e2e/tsconfig.json"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "tmt-stroop-test:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/tmt-stroop-test-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "packageManager": "npm"
+  },
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "tmt-stroop-test"
+}
