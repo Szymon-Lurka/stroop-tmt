@@ -1,0 +1,68 @@
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form > *:not(mat-label) {
+  margin-bottom: 18px;
+}
+
+mat-label {
+  font-size: 18px;
+  margin: 16px;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+
+mat-label:after {
+  content:" *";
+  color: red;
+}
+
+mat-form-field {
+  width: 100%;
+
+}
+mat-card {
+  margin: 8px 0 64px 0;
+  width: 100%;
+}
+
+mat-card-subtitle {
+  font-weight: 700;
+}
+
+.mat-card-subtitle, .mat-card-content {
+  font-size: 18px;
+  line-height: normal;
+  color: black;
+  font-weight: normal;
+}
+
+mat-radio-group {
+  width: 100%;
+  display: block;
+  display: flex;
+  justify-content: center;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 16px;
+}
+
+
+.wrapper {
+  max-width: 700px;
+
+}
+
+
