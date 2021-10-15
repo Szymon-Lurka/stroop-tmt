@@ -21,7 +21,7 @@
               "apps/tmt-stroop-test/src/favicon.ico",
               "apps/tmt-stroop-test/src/assets"
             ],
-            "styles": ["apps/tmt-stroop-test/src/styles.scss"],
+            "styles": ["./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css", "apps/tmt-stroop-test/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -123,6 +123,7 @@
     }
   },
   "cli": {
+    "analytics": false,
     "defaultCollection": "@nrwl/angular",
     "packageManager": "npm"
   },
