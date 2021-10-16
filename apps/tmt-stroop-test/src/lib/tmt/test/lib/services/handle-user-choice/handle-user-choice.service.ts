@@ -22,10 +22,12 @@ export class HandleUserChoiceService implements HandleUserChoice {
   }
 
   saveError(error: TMTError): void {
+    console.log(error);
     this.errors.push(error);
   }
 
   saveSecondError(error: TMTError): void {
+    console.log(error);
     this.secondErrors.push(error);
   }
 
