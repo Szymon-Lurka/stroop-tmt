@@ -1,7 +1,25 @@
 mat-radio-button {
   margin-right: 8px;
 }
-
+mat-radio-group.center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .hint {
   white-space: pre-line;
+
+}
+
+mat-label {
+  font-size: 18px;
+  margin: 16px;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+
+mat-label:after {
+  content:" *";
+  color: red;
 }

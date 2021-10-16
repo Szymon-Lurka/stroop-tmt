@@ -2,12 +2,12 @@
   {{title}}
 </h4>
 <p *ngIf='hint' class='hint'>{{hint}}</p>
+<mat-label *ngIf='label'>{{label}}</mat-label>
 <div class='container'>
-  <mat-radio-group aria-label='Select an option' [formControl]='formControl' color='primary'>
+  <mat-radio-group aria-label='Select an option' [formControl]='formControl' color='primary' [ngClass]='{"center":label}'>
     <mat-radio-button *ngFor='let scale of questionScale' [value]='scale'>{{scale}}</mat-radio-button>
   </mat-radio-group>
   <mat-error *ngIf='formControl.touched'>
     {{getError()}}
   </mat-error>
 </div>
-

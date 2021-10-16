@@ -1,0 +1,5 @@
+<div class='container'>
+  <p *ngIf='currentSet[currentQuestionIndex]' [ngStyle]="{'color': currentSet[currentQuestionIndex].color}">
+    {{currentSet[currentQuestionIndex].text}}
+  </p>
+</div>

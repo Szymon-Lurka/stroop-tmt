@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Właśnie ukończyłeś samouczek.</h1>
+<div mat-dialog-content>
+  <p>Zadaniem Pana/Pani jest przeprowadzenie ciągłej linii za pomocą myszki między liczbami od 1 do 25, kolejno od 1 do 2, od 2 do 3, od 3 do 4 itd. tak, aby za pomocą linii stworzył się ciąg: 1, 2, 3, 4,5 itd.
+    Zadanie należy wykonać w jak najkrótszym czasie.
+
+    Proszę wcisnąć spację, aby rozpocząć próbę.</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="redirectToTmtTest()" color="primary">Rozpocznij test!</button>
+  <button mat-button mat-dialog-close (click)="repeatTutorial()" color="warn">Powtórz samouczek</button>
+</div>

@@ -15,5 +15,6 @@ export class SaveAnswersToStorageService implements SaveAnswersToStorage {
   save() {
     this.localStorage.set('welcomeForm', JSON.stringify(this.welcomeForm.get().value));
     this.localStorage.set('additionalQuestions', JSON.stringify(this.additionalQuestionsForm.get().value));
+    this.localStorage.set('firstStageCompleted', JSON.stringify(true));
   }
 }

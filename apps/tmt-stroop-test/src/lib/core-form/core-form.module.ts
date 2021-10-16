@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BasicInputComponent } from './form-fields/basic-input/basic-input.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -20,13 +19,11 @@ import { MatRadioModule } from '@angular/material/radio';
     MatRadioModule
   ],
   exports: [
-    BasicInputComponent,
     InputNumberComponent,
     SelectComponent,
     InputRadioComponent
   ],
   declarations: [
-    BasicInputComponent,
     InputNumberComponent,
     SelectComponent,
     InputRadioComponent

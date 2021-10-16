@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BasicInputComponent } from './basic-input.component';
+import { WelcomePageComponent } from './welcome-page.component';
 
-describe('BasicInputComponent', () => {
-  let component: BasicInputComponent;
-  let fixture: ComponentFixture<BasicInputComponent>;
+describe('WelcomePageComponent', () => {
+  let component: WelcomePageComponent;
+  let fixture: ComponentFixture<WelcomePageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BasicInputComponent ]
+      declarations: [ WelcomePageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BasicInputComponent);
+    fixture = TestBed.createComponent(WelcomePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
