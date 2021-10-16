@@ -1,0 +1,10 @@
+<div>
+  <p *ngFor="let data of currentSet"
+     [ngStyle]="{
+     'top': 10 + data.coordinates[0] + 'px', 'left': 50 + data.coordinates[1] + 'px',
+     'color': checkStyles(data.value)
+     }"
+     (mouseover)="handleMouseOver(data.value)">
+    {{data.value}}
+  </p>
+</div>

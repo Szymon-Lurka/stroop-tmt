@@ -1,0 +1,128 @@
+<div class='main'>
+  <tmt-stroop-test-header title='Dane demograficzne' route='welcome'></tmt-stroop-test-header>
+  <mat-card>
+    <form [formGroup]='welcomeForm.get()' (ngSubmit)='onSubmit()'>
+      <div class='wrapper'>
+        <div class='form-item'>
+          <tmt-stroop-test-select
+            [formControl]='welcomeForm.sex()'
+            label='Płeć'
+            title='Płeć'
+            [selectOptions]='selectConfigs.sex'
+            ngDefaultControl
+          >
+          </tmt-stroop-test-select>
+        </div>
+        <div class='form-item'>
+          <tmt-stroop-test-input-number
+            [formControl]='welcomeForm.age()'
+            label='Wiek'
+            title='Wiek'
+            [min]='12'
+            [max]='120'
+            ngDefaultControl
+          >
+          </tmt-stroop-test-input-number>
+        </div>
+        <div class='form-item'>
+          <tmt-stroop-test-select
+            [formControl]='welcomeForm.education()'
+            label='Wykształcenie'
+            title='Wykształcenie'
+            [selectOptions]='selectConfigs.education'
+            ngDefaultControl
+          >
+          </tmt-stroop-test-select>
+        </div>
+        <div class='form-item'>
+          <tmt-stroop-test-select
+            [formControl]='welcomeForm.residence()'
+            [selectOptions]='selectConfigs.residence'
+            label='Miejsce zamieszkania'
+            title='Miejsce zamieszkania'
+            ngDefaultControl
+          >
+          </tmt-stroop-test-select>
+        </div>
+        <div class='form-item'>
+          <tmt-stroop-test-select
+            [formControl]='welcomeForm.financialSituation()'
+            [selectOptions]='selectConfigs.financial'
+            label='Ocena'
+            title='Jak Pan/Pani ocenia obecne warunki materialne swojego gospodarstwa domowego?'
+            ngDefaultControl
+          >
+          </tmt-stroop-test-select>
+        </div>
+        <div class='form-item'>
+          <tmt-stroop-test-select
+            [formControl]='welcomeForm.isPlayingGames()'
+
+            [selectOptions]='selectConfigs.playingGames'
+            label='Czy gra Pan/Pani w gry komputerowe?'
+            title='Czy gra Pan/Pani w gry komputerowe?'
+            (valueChanged)='changeState($event)'
+            ngDefaultControl
+          >
+          </tmt-stroop-test-select>
+        </div>
+        <div class='form-item' *ngIf='canDisplayGamingQuestions'>
+          <tmt-stroop-test-input-number
+            [min]='0'
+            [max]='744'
+            label='Godzin'
+            title='Ile godzin miesięcznie poświeca Pan/Pani na granie w gry komputerowe?'
+            [formControl]='welcomeForm.numberOfHoursPerMonth()'
+            ngDefaultControl
+          >
+          </tmt-stroop-test-input-number>
+        </div>
+        <div class='form-item' *ngIf='canDisplayGamingQuestions'>
+          <tmt-stroop-test-select
+            [formControl]='welcomeForm.topPopularGame()'
+            label='Gra'
+            title='W którą spośród tych gier gra Pan/Pani najwięcej?'
+            [selectOptions]='selectConfigs.topPopularGame'
+            ngDefaultControl
+          >
+          </tmt-stroop-test-select>
+        </div>
+        <div class='form-item' *ngIf='canDisplayGamingQuestions'>
+          <tmt-stroop-test-input-number
+            [formControl]='welcomeForm.numberOfHoursPerMonthInTopGame()'
+            [min]='0'
+            [max]='744'
+            title='Ile godzin miesięcznie poświęca Pan/Pani na granie w tą grę? (jeśli istnieje taka możliwość proszę podać
+            wartość z serwisu Steam, jeśli nie, to proszę oszacować)'
+            label='Godzin'
+            ngDefaultControl
+          >
+          </tmt-stroop-test-input-number>
+        </div>
+        <div class='form-item' *ngIf='canDisplayGamingQuestions'>
+          <tmt-stroop-test-select
+            [formControl]='welcomeForm.futureInGaming()'
+            label='Czy wiąże Pan/Pani przyszłość?'
+            title='Czy wiąże Pan/Pani swoją przyszłość z graniem np. esport, kariera zawodnika, turnieje, streaming?'
+            [selectOptions]='selectConfigs.futureGaming'
+            ngDefaultControl
+          >
+          </tmt-stroop-test-select>
+        </div>
+        <div class='form-item' *ngIf='canDisplayGamingQuestions'>
+          <tmt-stroop-test-input-radio
+            [formControl]='welcomeForm.familyAccepts()'
+            [scale]='5'
+            title='Czy Pańska/Pani rodzina i osoby bliskie akceptują Pana/Pani hobby?'
+            hint='Skala od 1 do 5. &#10;&#13; 1 - całkowicie nie akceptują &#10;&#13; 3 - umiarkowanie akceptują &#10;&#13; 5 - całkowicie akceptują'
+            ngDefaultControl
+          >
+          </tmt-stroop-test-input-radio>
+        </div>
+        <button color='primary' mat-raised-button type='submit' [disabled]='welcomeForm.get().invalid'>Przejdź do
+          ankiety
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>
