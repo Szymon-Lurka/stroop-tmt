@@ -1,4 +1,4 @@
 export interface TMTError {
   reactionTime: number;
-  currentValue: number;
+  currentValue: number | string;
 }

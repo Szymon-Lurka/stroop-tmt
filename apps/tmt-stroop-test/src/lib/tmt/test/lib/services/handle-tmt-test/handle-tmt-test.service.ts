@@ -19,6 +19,7 @@ export class HandleTmtTestService implements HandleTmtTest {
   isMouseClicked = false;
   isOver = false;
   startTime = -1;
+  searchingForNumber = false;
 
   constructor(private handleUserChoice: HandleUserChoice,
               private router: Router,
@@ -106,30 +107,37 @@ export class HandleTmtTestService implements HandleTmtTest {
   private handleSecondStageNumberValue(value: number) {
     const currentItem = this.currentDataSet.value.filter((data) => data.value === value);
     const timePassedFromStart = this.countReactionTime();
-    if (value < this.currentValue.value) {
+    if (this.isSecondStageNumberError(value)) {
       this.handleUserChoice.saveSecondError({
-        currentValue: value,
+        currentValue: this.currentValue.value,
         reactionTime: timePassedFromStart
       });
       return;
     }
     if (this.isCorrectNextNumber(value)) {
-      if (!(this.currentLetter.value === TmtSecondDataSet[value as number])) return;
+      if (!(this.currentLetter.value === TmtSecondDataSet[value as number])) {
+        this.handleUserChoice.saveSecondError({
+          currentValue: TmtSecondDataSet[this.currentValue.value],
+          reactionTime: timePassedFromStart
+        });
+        return;
+      };
       this.handleUserChoice.saveSecondAnswer({
         value: this.currentValue.value + 1,
         distance: currentItem[0].distance,
         reactionTime: timePassedFromStart
       });
       this.currentValue.next(this.currentValue.value + 1);
+      this.searchingForNumber = false;
     }
   }
 
   private handleSecondStageStringValue(value: string) {
     const currentItem = this.currentDataSet.value.filter((data) => data.value === value);
     const timePassedFromStart = this.countReactionTime();
-    if (value.charCodeAt(0) < (this.currentLetter.value).charCodeAt(0)) {
+    if (value.charCodeAt(0) < (this.currentLetter.value).charCodeAt(0) || (value.charCodeAt(0) - (this.currentLetter.value.charCodeAt(0) - 1) > 0) && this.searchingForNumber) {
       this.handleUserChoice.saveSecondError({
-        currentValue: value as unknown as number,
+        currentValue: TmtSecondDataSet[this.currentValue.value],
         reactionTime: timePassedFromStart
       });
       return;
@@ -145,6 +153,7 @@ export class HandleTmtTestService implements HandleTmtTest {
         distance: currentItem[0].distance,
         reactionTime: timePassedFromStart
       });
+      this.searchingForNumber = true;
     }
   }
 
@@ -178,6 +187,10 @@ export class HandleTmtTestService implements HandleTmtTest {
     this.handleUserChoice.saveSecondToLocalStorage();
     this.sendData.send();
     this.router.navigate(['thank-you']).then();
+  }
+
+  private isSecondStageNumberError(value: number) {
+    return value < this.currentValue.value || value - this.currentValue.value >= 2
   }
 
   private goToSecondStage() {
