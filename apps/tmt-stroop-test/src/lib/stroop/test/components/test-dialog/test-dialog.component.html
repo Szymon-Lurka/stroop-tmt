@@ -1,0 +1,32 @@
+<ng-container *ngIf='!data.isLastStage'>
+  <p> Za chwilę na ekranie pojawi się 30 przymiotników określających nazwy kolorów. Pana/Pani zadaniem jest naciskać
+    określone klawisze na klawiaturze, odpowiadające temu jakim kolorem napisane jest słowo, jednocześnie ignorując
+    znaczenie słowa.
+  </p>
+  <p>
+    Np. CZERWONY napisany kolorem zielonym oznacza, że na klawiaturze należy przycisnąć Z dla zielonego. Zadanie
+    należy wykonać w jak najkrótszym czasie.
+  </p>
+  <ul>
+    <li>"<strong>X</strong>" dla żółtego</li>
+    <li>"<strong>Z</strong>" dla zielonego</li>
+    <li>"<strong>C</strong>" dla czerwonego</li>
+    <li>"<strong>N</strong>" dla niebieskiego</li>
+  </ul>
+
+  <p>
+    Proszę wcisnąć spację, gdy będzie Pan/Pani gotowa, by rozpocząć próbę
+  </p>
+  <button mat-button mat-dialog-close color='primary'>Rozpocznij kolejny etap</button>
+</ng-container>
+
+<ng-container *ngIf='data.isLastStage'>
+  <h2>
+    Dziękujemy za udział w teście Stroopa!
+  </h2>
+
+  <p>
+    Proszę wcisnąć spację, gdy będzie Pan/Pani gotowa, by przejść do kolejnego badania
+  </p>
+  <button mat-button mat-dialog-close color='primary'>Rozpocznij kolejne badanie</button>
+</ng-container>

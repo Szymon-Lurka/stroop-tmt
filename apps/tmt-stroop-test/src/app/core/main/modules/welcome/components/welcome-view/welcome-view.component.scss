@@ -1,0 +1,28 @@
+mat-card {
+  max-width: 700px;
+}
+
+mat-card-subtitle {
+  font-weight: 700;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 32px;
+}
+
+p {
+  margin: 16px 0;
+  font-size:18px;
+  line-height: normal;
+}
+
+li {
+  font-size: 18px;
+}
+
+button {
+  font-size: 20px;
+}

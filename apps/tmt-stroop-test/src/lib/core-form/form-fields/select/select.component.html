@@ -1,0 +1,15 @@
+<h4>{{title}}</h4>
+<mat-form-field>
+  <mat-label>
+    {{label}}
+  </mat-label>
+  <mat-select
+    (selectionChange)='valueChanged.emit($event)'
+    [formControl]='formControl'>
+    <mat-option *ngFor='let selectOption of selectOptions'
+                [value]='selectOption.value'>{{selectOption.label}}</mat-option>
+  </mat-select>
+  <mat-error>
+    {{getError()}}
+  </mat-error>
+</mat-form-field>

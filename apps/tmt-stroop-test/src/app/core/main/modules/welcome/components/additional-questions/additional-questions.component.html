@@ -1,0 +1,47 @@
+<div class='main'>
+  <tmt-stroop-test-header title='NTB w polskiej adaptacji' route='demographics-data'></tmt-stroop-test-header>
+  <div class='wrapper'>
+    <mat-card>
+      <mat-card-title>
+        <h2>NTB w polskiej adaptacji <br> (Zyśk, Trepanowski, Frydrychowicz, Pradelok, Zawada, 2021) </h2>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <p>
+          W odniesieniu do każdego z poniższych stwierdzeń, proszę określić, w jakim stopniu się Pan/i zgadza lub nie
+          zgadza z danym stwierdzeniem, zaznaczając odpowiednią liczbę w polu obok pytania, korzystając z poniższej
+          skali:
+        </p>
+        <ul>
+          <li>1 = zdecydowanie nie zgadzam się</li>
+          <li>2 = umiarkowanie nie zgadzam się</li>
+          <li>3 = ani się zgadzam, ani się nie zgadzam</li>
+          <li>4 = umiarkowanie zgadzam się</li>
+          <li>5 = zdecydowanie zgadzam się</li>
+        </ul>
+        <p style='color:red; font-size: 16px;'>*Wymagane</p>
+      </mat-card-subtitle>
+    </mat-card>
+    <form [formGroup]='additionalQuestionsForm.get()' (ngSubmit)='onSubmit()'>
+      <mat-card *ngFor='let question of questions'>
+        <ng-container>
+          <tmt-stroop-test-input-radio
+            [formControl]='question.formControl'
+            [label]='question.question'
+            [scale]='5'
+            ngDefaultControl
+          >
+          </tmt-stroop-test-input-radio>
+        </ng-container>
+      </mat-card>
+      <mat-card>
+        <button
+          type='submit'
+          [disabled]='additionalQuestionsForm.get().invalid'
+          mat-raised-button color='primary'>
+          Przejdź do testu Stroopa
+        </button>
+      </mat-card>
+    </form>
+
+  </div>
+</div>
