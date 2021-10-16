@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { SendData } from './send-data';
 import { HttpClient } from '@angular/common/http';
 import { LocalStorage } from '../local-storage/local-storage';
+import { DataForBackend } from '../../models/data-for-backend';
 
 @Injectable()
 export class SendDataService implements SendData {
@@ -13,7 +14,7 @@ export class SendDataService implements SendData {
     this.http.post('http://domiapp-backend:8080/save', this.prepareData()).subscribe();
   }
 
-  private prepareData() {
+  private prepareData(): DataForBackend {
     const tmtAnswers = JSON.parse(this.localStorage.get('tmtAnswer'));
     const tmtSecondAnswers = JSON.parse(this.localStorage.get('tmtSecondAnswers'));
     const tmtErrors = JSON.parse(this.localStorage.get('tmtErrors'));
