@@ -7,7 +7,7 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "start": "nx serve",
     "build": "nx build",
-    "postbuild": "mv dist/apps/tmt-stroop-test/* dist && rmdir dist/apps", 
+    "postbuild": "mv dist/apps/tmt-stroop-test/* dist && rm -r dist/apps",
     "test": "nx test"
   },
   "private": true,
