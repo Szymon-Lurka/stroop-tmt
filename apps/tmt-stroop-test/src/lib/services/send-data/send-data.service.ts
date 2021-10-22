@@ -11,7 +11,7 @@ export class SendDataService implements SendData {
   }
 
   send() {
-    this.http.post('http://domiapp-backend:8080/save', this.prepareData()).subscribe();
+    this.http.post('/services/save', this.prepareData()).subscribe();
   }
 
   private prepareData(): DataForBackend {
