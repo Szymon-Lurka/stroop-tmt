@@ -1,12 +1,15 @@
-div {
-  width: 100%;
-  height: 100%;
-  position: relative;
 
+div {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: grid;
+  grid-template-rows: repeat(13, 1fr);
+  grid-template-columns: repeat(13, 1fr);
+  
   p {
-    position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     background-color: whitesmoke;
     display: flex;
@@ -14,8 +17,16 @@ div {
     align-items: center;
     user-select: none;
     box-shadow: 2px 3px 14px -12px rgb(0 0 0 / 75%);
-    font-size: 33px;
+    font-size: 1.7vw;
   }
 }
 
-
+@media screen and (max-width: 768px) {
+  div {
+    p {
+      font-size: 1.9vw;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

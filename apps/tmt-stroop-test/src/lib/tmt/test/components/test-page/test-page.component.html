@@ -1,8 +1,9 @@
 <div>
   <p *ngFor="let data of currentSet"
      [ngStyle]="{
-     'top': 10 + data.coordinates[0] + 'px', 'left': 50 + data.coordinates[1] + 'px',
-     'color': checkStyles(data.value)
+      'grid-column': data.coordinates[0] + ' / ' + data.coordinates[0] + 1,
+      'grid-row': data.coordinates[1] + ' / ' + data.coordinates[1] + 1,  
+      'color': checkStyles(data.value)
      }"
      (mouseover)="handleMouseOver(data.value)">
     {{data.value}}

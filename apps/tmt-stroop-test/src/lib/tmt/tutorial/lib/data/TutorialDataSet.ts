@@ -2,42 +2,42 @@ import { DataSet } from '../../../lib/models/DataSet';
 
 export const tutorialDataSet: DataSet[] = [
   {
-    coordinates: [50, 311],
+    coordinates: [2, 2],
     value: 1,
     distance: 19
   },
   {
-    coordinates: [230, 160],
+    coordinates: [9, 9],
     value: 2,
     distance: 49
   },
   {
-    coordinates: [312, 100],
+    coordinates: [12, 12],
     value: 3,
     distance: 49
   },
   {
-    coordinates: [464, 211],
+    coordinates: [9, 3],
     value: 4,
     distance: 49
   },
   {
-    coordinates: [129, 372],
+    coordinates: [3, 9],
     value: 5,
     distance: 49
   },
   {
-    coordinates: [69, 132],
+    coordinates: [5, 5],
     value: 6,
     distance: 49
   },
   {
-    coordinates: [250, 324],
+    coordinates: [10, 2],
     value: 7,
     distance: 49
   },
   {
-    coordinates: [348, 542],
+    coordinates: [2, 10],
     value: 8,
     distance: 49
   }
