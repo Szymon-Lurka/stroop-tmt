@@ -12,6 +12,7 @@ export class SendDataService implements SendData {
 
   send() {
     this.http.post('/services/save', this.prepareData()).subscribe();
+    this.localStorage.clear();
   }
 
   private prepareData(): DataForBackend {

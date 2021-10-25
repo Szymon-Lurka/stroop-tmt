@@ -9,4 +9,6 @@ export abstract class LocalStorage {
   abstract set(key: string, value: string): void;
 
   abstract get(key: string): string;
+
+  abstract clear(): void;
 }
