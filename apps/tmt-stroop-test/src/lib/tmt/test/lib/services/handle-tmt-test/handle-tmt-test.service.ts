@@ -10,6 +10,9 @@ import { countTime } from '../../../../../utils/count-time';
 import { TmtSecondDataSet } from '../../../../tutorial/lib/types/TmtDataSet';
 import { Router } from '@angular/router';
 import { SendData } from '../../../../../services/send-data/send-data';
+import { AfterFirstStageDialogComponent } from '../../../components/after-first-stage-dialog/after-first-stage-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+
 
 @Injectable()
 export class HandleTmtTestService implements HandleTmtTest {
@@ -23,7 +26,8 @@ export class HandleTmtTestService implements HandleTmtTest {
 
   constructor(private handleUserChoice: HandleUserChoice,
               private router: Router,
-              private sendData: SendData) {
+              private sendData: SendData,
+              private matDialog: MatDialog) {
   }
 
   handle(isFirstStageCompleted: boolean) {
@@ -48,6 +52,7 @@ export class HandleTmtTestService implements HandleTmtTest {
     } else {
       if (typeof value === 'number') {
         this.handleFirstSetMouseOver(value);
+
       }
     }
   }
@@ -73,6 +78,7 @@ export class HandleTmtTestService implements HandleTmtTest {
     if (this.isLastInFirstDataSet()) {
       this.isOver = true;
       this.handleUserChoice.saveToLocalStorage();
+      this.openDialogAfterFirstStage();
       this.currentDataSet.next(secondDataSet);
       this.resetStats();
     }
@@ -196,4 +202,14 @@ export class HandleTmtTestService implements HandleTmtTest {
   private goToSecondStage() {
     this.currentDataSet.next(secondDataSet);
   }
+
+  private openDialogAfterFirstStage() {
+    const dialogRef = this.matDialog.open(AfterFirstStageDialogComponent, {
+      disableClose: true
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      this.isMouseClicked = false;
+    });
+  }
+
 }
