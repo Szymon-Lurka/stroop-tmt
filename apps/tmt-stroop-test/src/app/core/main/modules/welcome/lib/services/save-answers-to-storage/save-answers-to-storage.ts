@@ -7,4 +7,5 @@ import { SaveAnswersToStorageService } from './save-answers-to-storage.service';
 })
 export abstract class SaveAnswersToStorage {
   abstract save(): void;
+  abstract saveWelcomeForm(): void;
 }
