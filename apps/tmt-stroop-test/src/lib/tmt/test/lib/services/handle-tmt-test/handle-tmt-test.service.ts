@@ -58,7 +58,6 @@ export class HandleTmtTestService implements HandleTmtTest {
 
   handleMouseOver(value: number | string) {
     if (!this.isMouseClicked) return;
-    console.log(value)
     if (this.currentDataSet.value === secondDataSet) {
       this.isOver = false;
       this.handleSecondSetMouseOver(value);
