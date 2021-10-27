@@ -43,8 +43,22 @@ export class HandleTmtTestService implements HandleTmtTest {
     });
   }
 
+  handleMouseDown(value: number | string) {
+    if (this.currentDataSet.value === secondDataSet) {
+      this.isOver = false;
+      this.handleSecondSetMouseOver(value);
+      return;
+    } else {
+      if (typeof value === 'number') {
+        this.handleFirstSetMouseOver(value);
+
+      }
+    }
+  }
+
   handleMouseOver(value: number | string) {
     if (!this.isMouseClicked) return;
+    console.log(value)
     if (this.currentDataSet.value === secondDataSet) {
       this.isOver = false;
       this.handleSecondSetMouseOver(value);

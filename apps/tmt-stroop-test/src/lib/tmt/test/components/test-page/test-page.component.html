@@ -5,7 +5,7 @@
       'grid-row': data.coordinates[1] + ' / ' + data.coordinates[1] + 1,  
       'color': checkStyles(data.value)
      }"
-     (mouseover)="handleMouseOver(data.value)">
+     (mouseover)="handleMouseOver(data.value)" (mousedown)="handleMouseDown(data.value)">
     {{data.value}}
   </p>
 </div>

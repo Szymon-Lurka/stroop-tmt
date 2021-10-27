@@ -29,6 +29,10 @@ export class TestPageComponent implements OnInit {
     this.handleTmtTest.handleMouseOver(value);
   }
 
+  handleMouseDown(value: number | string) {
+    this.handleTmtTest.handleMouseDown(value);
+  }
+
   checkStyles(value: number | string) {
     return this.currentLetter ? checkStylesFn(value, this.currentValue, this.currentLetter) : checkStylesFn(value, this.currentValue);
   }

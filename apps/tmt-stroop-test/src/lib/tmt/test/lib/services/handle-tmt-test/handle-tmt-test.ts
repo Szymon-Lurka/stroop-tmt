@@ -13,4 +13,5 @@ export abstract class HandleTmtTest {
   abstract currentValue: BehaviorSubject<number>;
   abstract currentLetter: BehaviorSubject<string>;
   abstract handleMouseOver(value: number | string): void;
+  abstract handleMouseDown(value: number | string): void;
 }
