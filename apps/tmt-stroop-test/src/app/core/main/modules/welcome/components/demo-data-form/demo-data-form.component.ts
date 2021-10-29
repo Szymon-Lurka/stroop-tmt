@@ -4,6 +4,8 @@ import { WelcomeForm } from '../../lib/services/welcome-form/welcome-form';
 import { MatSelectChange } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { SelectConfigs } from '../../lib/types/select-configs';
+import { SaveAnswersToStorage } from '../../lib/services/save-answers-to-storage/save-answers-to-storage';
+
 
 @Component({
   selector: 'tmt-stroop-test-demo-data-form',
@@ -14,10 +16,11 @@ export class DemoDataFormComponent {
   canDisplayGamingQuestions = false;
   selectConfigs = SelectConfigs;
 
-  constructor(private manageWelcomeForm: ManageWelcomeForm, public welcomeForm: WelcomeForm, private router: Router) {
+  constructor(private saveAnswersToStorage: SaveAnswersToStorage,private manageWelcomeForm: ManageWelcomeForm, public welcomeForm: WelcomeForm, private router: Router) {
   }
 
   onSubmit() {
+    this.saveAnswersToStorage.saveWelcomeForm();
     this.router.navigate(['additional-questions']).then();
   }
 

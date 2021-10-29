@@ -1,15 +1,15 @@
 import { DataSet } from '../../models/DataSet';
 
 export const TutorialStageColors: DataSet[] = [
-  { text: "Red", color: "Red" },
-  { text: "Yellow", color: "Red" },
-  { text: "Green", color: "Green" },
-  { text: "Blue", color: "Red" },
-  { text: "Green", color: "Green" },
-  { text: "Yellow", color: "Yellow" },
-  { text: "Red", color: "Red" },
-  { text: "Red", color: "Green" },
-  { text: "Red", color: "Yellow" },
-  { text: "Blue", color: "Red" },
-  { text: "Red", color: "Green" },
+  { text: "Czerwony", color: "Red" },
+  { text: "Zółty", color: "Red" },
+  { text: "Zielony", color: "Green" },
+  { text: "Niebieski", color: "Red" },
+  { text: "Zielony", color: "Green" },
+  { text: "Żółty", color: "Yellow" },
+  { text: "Czerwony", color: "Red" },
+  { text: "Czerwony", color: "Green" },
+  { text: "Czerwony", color: "Yellow" },
+  { text: "Niebieski", color: "Red" },
+  { text: "Czerwony", color: "Green" },
 ];

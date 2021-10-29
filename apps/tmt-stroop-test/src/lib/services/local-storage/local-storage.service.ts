@@ -14,4 +14,8 @@ export class LocalStorageService implements LocalStorage {
   set(key: string, value: string) {
     localStorage.setItem(key, value);
   }
+
+  clear() {
+    localStorage.clear();
+  }
 }
