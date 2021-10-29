@@ -23,7 +23,6 @@ export class HandleUserChoiceService implements HandleUserChoice {
       }
     };
     this.answers.push(answer);
-    console.log(this.answers);
   }
 
   saveToLocalStorage() {
