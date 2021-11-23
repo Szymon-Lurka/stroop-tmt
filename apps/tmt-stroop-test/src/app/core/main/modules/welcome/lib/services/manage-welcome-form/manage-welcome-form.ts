@@ -8,5 +8,7 @@ import { ManageWelcomeFormService } from './manage-welcome-form.service';
 export abstract class ManageWelcomeForm {
   abstract addValidatorsToGameQuestions(): void;
   abstract removeValidatorsFromGameQuestions(): void;
+  abstract addValidatorToTopPopularGameCustom(): void;
+  abstract removeValidatorFromTopPopularGameCustom(): void;
 
 }

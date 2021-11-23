@@ -17,4 +17,8 @@ export const TopPopularGameConfig:SelectOption[] = [
     value: 3,
     label: "PlayerUnknown's Battleground"
   },
+  {
+    value: 4,
+    label: "Inna"
+  },
 ]

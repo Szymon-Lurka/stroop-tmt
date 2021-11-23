@@ -22,7 +22,8 @@ import { InputCustomComponent } from './form-fields/input-custom/input-custom.co
   exports: [
     InputNumberComponent,
     SelectComponent,
-    InputRadioComponent
+    InputRadioComponent,
+    InputCustomComponent
   ],
   declarations: [
     InputNumberComponent,

@@ -34,4 +34,14 @@ export class DemoDataFormComponent {
       this.manageWelcomeForm.removeValidatorsFromGameQuestions();
     }
   }
+
+  changeStateTopPopularGame(matSelectChange: MatSelectChange) {
+    if (matSelectChange.value === 4) {
+      this.canDisplayTopPopularGameCustom = true;
+      this.manageWelcomeForm.addValidatorToTopPopularGameCustom();
+    } else {
+      this.canDisplayTopPopularGameCustom = false;
+      this.manageWelcomeForm.removeValidatorFromTopPopularGameCustom();
+    }
+  }
 }

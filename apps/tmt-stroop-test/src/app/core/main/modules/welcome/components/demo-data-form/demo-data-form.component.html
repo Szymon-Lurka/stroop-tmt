@@ -83,12 +83,13 @@
             label='Gra'
             title='W którą spośród tych gier gra Pan/Pani najwięcej?'
             [selectOptions]='selectConfigs.topPopularGame'
+            (valueChanged)='changeStateTopPopularGame($event)'
             ngDefaultControl
           >
           </tmt-stroop-test-select>
         </div>
-        <div class='form-item'>
-          <tmt-stroop-test-input-custom *ngIf='canDisplayGamingQuestions'
+        <div class='form-item' *ngIf='canDisplayGamingQuestions && canDisplayTopPopularGameCustom'>
+          <tmt-stroop-test-input-custom 
             [formControl]='welcomeForm.topPopularGameCustom()'
             label='Gra'
             title='Proszę wpisać w jaką grę gra Pan/Pani najwięcej'
