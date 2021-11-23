@@ -87,6 +87,15 @@
           >
           </tmt-stroop-test-select>
         </div>
+        <div class='form-item'>
+          <tmt-stroop-test-input-custom *ngIf='canDisplayGamingQuestions'
+            [formControl]='welcomeForm.topPopularGameCustom()'
+            label='Gra'
+            title='Proszę wpisać w jaką grę gra Pan/Pani najwięcej'
+            ngDefaultControl
+          >
+          </tmt-stroop-test-input-custom>
+        </div>
         <div class='form-item' *ngIf='canDisplayGamingQuestions'>
           <tmt-stroop-test-input-number
             [formControl]='welcomeForm.numberOfHoursPerMonthInTopGame()'

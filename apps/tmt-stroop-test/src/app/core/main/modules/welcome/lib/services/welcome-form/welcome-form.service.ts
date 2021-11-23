@@ -13,6 +13,7 @@ export class WelcomeFormService implements WelcomeForm {
     isPlayingGames: new FormControl(null, Validators.required),
     numberOfHoursPerMonth: new FormControl(null),
     topPopularGame: new FormControl(null),
+    topPopularGameCustom: new FormControl(null),
     futureInGaming: new FormControl(null),
     familyAccepts: new FormControl(null),
     numberOfHoursPerMonthInTopGame: new FormControl(null)
@@ -63,6 +64,11 @@ export class WelcomeFormService implements WelcomeForm {
   topPopularGame(): FormControl {
     return this.formGroup.get('topPopularGame') as FormControl;
   }
+
+  topPopularGameCustom(): FormControl {
+    return this.formGroup.get('topPopularGameCustom') as FormControl;
+  }
+
 
   residence(): FormControl {
     return this.formGroup.get('residence') as FormControl;

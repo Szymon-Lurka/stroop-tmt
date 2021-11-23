@@ -16,6 +16,7 @@ export abstract class WelcomeForm {
   abstract isPlayingGames(): FormControl;
   abstract numberOfHoursPerMonth(): FormControl
   abstract topPopularGame(): FormControl;
+  abstract topPopularGameCustom(): FormControl;
   abstract futureInGaming(): FormControl;
   abstract familyAccepts(): FormControl;
   abstract numberOfHoursPerMonthInTopGame(): FormControl;

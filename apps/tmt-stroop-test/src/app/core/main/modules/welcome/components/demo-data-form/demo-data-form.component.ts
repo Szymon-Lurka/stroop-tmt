@@ -14,6 +14,7 @@ import { SaveAnswersToStorage } from '../../lib/services/save-answers-to-storage
 })
 export class DemoDataFormComponent {
   canDisplayGamingQuestions = false;
+  canDisplayTopPopularGameCustom = false;
   selectConfigs = SelectConfigs;
 
   constructor(private saveAnswersToStorage: SaveAnswersToStorage,private manageWelcomeForm: ManageWelcomeForm, public welcomeForm: WelcomeForm, private router: Router) {
