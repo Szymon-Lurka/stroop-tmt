@@ -8,6 +8,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
 import { InputRadioComponent } from './form-fields/input-radio/input-radio.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { InputCustomComponent } from './form-fields/input-custom/input-custom.component';
 
 @NgModule({
   imports: [
@@ -21,12 +22,14 @@ import { MatRadioModule } from '@angular/material/radio';
   exports: [
     InputNumberComponent,
     SelectComponent,
-    InputRadioComponent
+    InputRadioComponent,
+    InputCustomComponent
   ],
   declarations: [
     InputNumberComponent,
     SelectComponent,
-    InputRadioComponent
+    InputRadioComponent,
+    InputCustomComponent
   ]
 })
 export class CoreFormModule {}

@@ -10,6 +10,7 @@ export class ManageWelcomeFormService implements ManageWelcomeForm {
     this.welcomeForm.numberOfHoursPerMonth(),
     this.welcomeForm.numberOfHoursPerMonthInTopGame(),
     this.welcomeForm.topPopularGame(),
+    this.welcomeForm.topPopularGameCustom(),
     this.welcomeForm.futureInGaming(),
     this.welcomeForm.familyAccepts()
   ];
@@ -32,4 +33,19 @@ export class ManageWelcomeFormService implements ManageWelcomeForm {
       gameQuestion.updateValueAndValidity();
     });
   }
+
+  addValidatorToTopPopularGameCustom() {
+    this.gameQuestions[3].reset();
+    this.gameQuestions[3].setValidators(Validators.required);
+    this.gameQuestions[3].updateValueAndValidity();
+  }
+
+  removeValidatorFromTopPopularGameCustom () {
+      this.gameQuestions[3].reset();
+      this.gameQuestions[3].removeValidators(Validators.required);
+      this.gameQuestions[3].updateValueAndValidity();
+  }
+
+
+  
 }

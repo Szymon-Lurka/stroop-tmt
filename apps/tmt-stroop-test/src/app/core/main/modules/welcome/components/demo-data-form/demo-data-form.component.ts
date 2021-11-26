@@ -14,6 +14,7 @@ import { SaveAnswersToStorage } from '../../lib/services/save-answers-to-storage
 })
 export class DemoDataFormComponent {
   canDisplayGamingQuestions = false;
+  canDisplayTopPopularGameCustom = false;
   selectConfigs = SelectConfigs;
 
   constructor(private saveAnswersToStorage: SaveAnswersToStorage,private manageWelcomeForm: ManageWelcomeForm, public welcomeForm: WelcomeForm, private router: Router) {
@@ -31,6 +32,16 @@ export class DemoDataFormComponent {
     } else {
       this.canDisplayGamingQuestions = false;
       this.manageWelcomeForm.removeValidatorsFromGameQuestions();
+    }
+  }
+
+  changeStateTopPopularGame(matSelectChange: MatSelectChange) {
+    if (matSelectChange.value === 4) {
+      this.canDisplayTopPopularGameCustom = true;
+      this.manageWelcomeForm.addValidatorToTopPopularGameCustom();
+    } else {
+      this.canDisplayTopPopularGameCustom = false;
+      this.manageWelcomeForm.removeValidatorFromTopPopularGameCustom();
     }
   }
 }
